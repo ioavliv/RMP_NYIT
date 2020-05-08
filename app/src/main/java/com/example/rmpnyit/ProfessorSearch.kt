@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
 
@@ -16,6 +15,7 @@ class ProfessorSearch : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+//        DatabaseHelper.getAllProfessorData()
         return inflater.inflate(R.layout.professor_search, container, false)
     }
 

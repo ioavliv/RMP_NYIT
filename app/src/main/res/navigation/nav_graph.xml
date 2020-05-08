@@ -31,10 +31,32 @@
         android:id="@+id/CourseSearch"
         android:name="com.example.rmpnyit.CourseSearch"
         android:label="Course_search"
-        tools:layout="@layout/course_search" />
+        tools:layout="@layout/course_search" >
+        <action
+            android:id="@+id/action_CourseSearch_to_CourseView"
+            app:destination="@id/CourseView" />
+    </fragment>
     <fragment
         android:id="@+id/ProfessorView"
         android:name="com.example.rmpnyit.ProfessorView"
         android:label="Professor_view"
-        tools:layout="@layout/professor_view" />
+        tools:layout="@layout/professor_view" >
+        <action
+            android:id="@+id/action_ProfessorView_to_AddReview"
+            app:destination="@id/AddReview" />
+    </fragment>
+    <fragment
+        android:id="@+id/CourseView"
+        android:name="com.example.rmpnyit.CourseView"
+        android:label="Course_view"
+        tools:layout="@layout/course_view" >
+        <action
+            android:id="@+id/action_CourseView_to_ProfessorView"
+            app:destination="@id/ProfessorView" />
+    </fragment>
+    <fragment
+        android:id="@+id/AddReview"
+        android:name="com.example.rmpnyit.AddReview"
+        android:label="add_review"
+        tools:layout="@layout/add_review" />
 </navigation>
