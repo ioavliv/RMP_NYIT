@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SearchBy">
+
+    <fragment
+        android:id="@+id/SearchBy"
+        android:name="com.example.rmpnyit.SearchBy"
+        android:label="SearchBy"
+        tools:layout="@layout/search_by">
+
+        <action
+            android:id="@+id/action_SearchBy_to_ProfessorSearch"
+            app:destination="@id/ProfessorSearch" />
+        <action
+            android:id="@+id/action_SearchBy_to_CourseSearch"
+            app:destination="@id/CourseSearch" />
+    </fragment>
+    <fragment
+        android:id="@+id/ProfessorSearch"
+        android:name="com.example.rmpnyit.ProfessorSearch"
+        android:label="ProfessorSearch"
+        tools:layout="@layout/professor_search">
+        <action
+            android:id="@+id/action_ProfessorSearch_to_ProfessorView"
+            app:destination="@id/ProfessorView" />
+    </fragment>
+    <fragment
+        android:id="@+id/CourseSearch"
+        android:name="com.example.rmpnyit.CourseSearch"
+        android:label="Course_search"
+        tools:layout="@layout/course_search" />
+    <fragment
+        android:id="@+id/ProfessorView"
+        android:name="com.example.rmpnyit.ProfessorView"
+        android:label="Professor_view"
+        tools:layout="@layout/professor_view" />
+</navigation>
