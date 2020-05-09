@@ -15,9 +15,12 @@ class AddReview: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Pass course number from previous fragment and write it into this fragment's title.
         return inflater.inflate(R.layout.add_review, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //addReview(String LastName, String FirstName, String CourseID, String Comment, float Rating, float Difficulty)
     }
 }

@@ -1,5 +1,7 @@
 package com.example.rmpnyit
 
+import android.content.Context
+import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
+import com.example.rmpnyit.DatabaseHelper
 
 class ProfessorSearch : Fragment() {
 
@@ -15,8 +18,10 @@ class ProfessorSearch : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        DatabaseHelper.getAllProfessorData()
-        return inflater.inflate(R.layout.professor_search, container, false)
+        val mydb = DatabaseHelper(activity);
+        val allProfessors = mydb.getAllProfessorData();
+
+        return inflater.inflate(R.layout.professor_search, container, false);
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
