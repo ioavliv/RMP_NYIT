@@ -23,7 +23,7 @@ fun makeCourseCard(cursor: Cursor, context: Context?, view : View, dataViewModel
         RelativeLayout.LayoutParams.WRAP_CONTENT
     )
     card?.layoutParams = cardlp
-    card?.setCardBackgroundColor(Color.rgb(0, 51, 25))
+    card?.setCardBackgroundColor(Color.rgb(0,150,136))
     card?.setContentPadding(0,10,0,10)
     card?.useCompatPadding = true
 
@@ -54,8 +54,7 @@ fun makeCourseCard(cursor: Cursor, context: Context?, view : View, dataViewModel
 
     val CourseID : String = cursor.getString(0)
 
-    card?.setOnClickListener { val toast = Toast.makeText(context, "It works at least", Toast.LENGTH_SHORT)
-        toast.show()
+    card?.setOnClickListener {
         dataViewModel?.setCourseID(CourseID);
         findNavController(view).navigate(R.id.action_CourseSearch_to_CourseView)
     }
@@ -73,7 +72,7 @@ fun makeProfessorCard(cursor: Cursor, context: Context?, view : View, dataViewMo
         RelativeLayout.LayoutParams.WRAP_CONTENT
     )
     card?.layoutParams = cardlp
-    card?.setCardBackgroundColor(Color.rgb(0, 51, 25))
+    card?.setCardBackgroundColor(Color.rgb(0,150,136))
     card?.setContentPadding(0,10,0,10)
     card?.useCompatPadding = true
 
@@ -117,6 +116,12 @@ fun makeProfessorCard(cursor: Cursor, context: Context?, view : View, dataViewMo
     )
     ratingtext.layoutParams = ratinglp
     ratingtext.text = "Rating : " + cursor.getString(2)
+    if(cursor.getString(2).toFloat() <= 2){
+        card?.setCardBackgroundColor(Color.rgb(0,98,86))
+    }
+    if(cursor.getString(2).toFloat() >= 4){
+        card?.setCardBackgroundColor(Color.rgb(88,205,189))
+    }
     ratingtext.setTextColor(Color.WHITE)
     ratingtext.textSize = 20f
     ratingtext.gravity = Gravity.CENTER_VERTICAL
@@ -144,8 +149,7 @@ fun makeProfessorCard(cursor: Cursor, context: Context?, view : View, dataViewMo
 
     var LastName : String = cursor.getString(0)
     var FirstName : String = cursor.getString(1)
-    card?.setOnClickListener { val toast = Toast.makeText(context, "It works at least", Toast.LENGTH_SHORT)
-        toast.show()
+    card?.setOnClickListener {
         dataViewModel?.setLastName(LastName);
         dataViewModel?.setFirstName(FirstName)
         findNavController(view).navigate(R.id.action_ProfessorSearch_to_ProfessorView)
@@ -164,7 +168,7 @@ fun makeProfessorCourseCard(cursor: Cursor, context: Context?, view : View, data
         RelativeLayout.LayoutParams.WRAP_CONTENT
     )
     card?.layoutParams = cardlp
-    card?.setCardBackgroundColor(Color.rgb(0, 51, 25))
+    card?.setCardBackgroundColor(Color.rgb(0,150,136))
     card?.setContentPadding(0,10,0,10)
     card?.useCompatPadding = true
 
@@ -208,6 +212,12 @@ fun makeProfessorCourseCard(cursor: Cursor, context: Context?, view : View, data
     )
     ratingtext.layoutParams = ratinglp
     ratingtext.text = "Rating : " + cursor.getString(3)
+    if(cursor.getString(3).toFloat() <= 2){
+        card?.setCardBackgroundColor(Color.rgb(0,98,86))
+    }
+    if(cursor.getString(3).toFloat() >= 4){
+        card?.setCardBackgroundColor(Color.rgb(88,205,189))
+    }
     ratingtext.setTextColor(Color.WHITE)
     ratingtext.textSize = 20f
     ratingtext.gravity = Gravity.CENTER_VERTICAL
@@ -234,8 +244,7 @@ fun makeProfessorCourseCard(cursor: Cursor, context: Context?, view : View, data
 
     var LastName : String = cursor.getString(0)
     var FirstName : String = cursor.getString(1)
-    card?.setOnClickListener { val toast = Toast.makeText(context, "It works at least", Toast.LENGTH_SHORT)
-        toast.show()
+    card?.setOnClickListener {
         dataViewModel?.setLastName(LastName);
         dataViewModel?.setFirstName(FirstName)
         findNavController(view).navigate(R.id.action_CourseView_to_ProfessorView)
@@ -254,7 +263,7 @@ fun makeReviewCard(cursor: Cursor, context: Context?, view : View, dataViewModel
         RelativeLayout.LayoutParams.WRAP_CONTENT
     )
     card?.layoutParams = cardlp
-    card?.setCardBackgroundColor(Color.rgb(0, 51, 25))
+    card?.setCardBackgroundColor(Color.rgb(0,150,136))
     card?.setContentPadding(0,10,0,10)
     card?.useCompatPadding = true
 
@@ -298,6 +307,12 @@ fun makeReviewCard(cursor: Cursor, context: Context?, view : View, dataViewModel
     ratingtext.layoutParams = ratinglp
     ratingtext.text = "Rating : " + cursor.getString(5)
     ratingtext.setTextColor(Color.WHITE)
+    if(cursor.getString(5).toFloat() <= 2){
+        card?.setCardBackgroundColor(Color.rgb(0,98,86))
+    }
+    if(cursor.getString(5).toFloat() >= 4){
+        card?.setCardBackgroundColor(Color.rgb(88,205,189))
+    }
     ratingtext.textSize = 20f
     ratingtext.gravity = Gravity.CENTER_VERTICAL
 
@@ -320,7 +335,7 @@ fun makeReviewCard(cursor: Cursor, context: Context?, view : View, dataViewModel
         RelativeLayout.LayoutParams.WRAP_CONTENT
     )
     commenttext.text = "Comment: " + cursor.getString(4)
-    commenttext.textSize = 25f
+    commenttext.textSize = 20f
     commenttext.setTextColor(Color.WHITE)
 
 
@@ -342,7 +357,7 @@ fun makeReviewCard(cursor: Cursor, context: Context?, view : View, dataViewModel
     disliketext.text= "Likes: " + cursor.getString(7)
     disliketext.setTextColor(Color.WHITE)
 
-    vertlayout.addView(proftext)
+ //   vertlayout.addView(proftext)
     vertlayout.addView(courseidtext)
     vertlayout.addView(ratingtext)
     vertlayout.addView(difftext)
