@@ -45,6 +45,8 @@ class CourseView: Fragment() {
             layout.addView(card)
         }
 
+        view.findViewById<TextView>(R.id.textview_first).text = CourseID
+
         return view
     }
 

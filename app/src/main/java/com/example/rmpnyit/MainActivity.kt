@@ -49,18 +49,18 @@ class MainActivity : AppCompatActivity() {
         myDb.addCourse("CSCI 345", "Computer Networks");
 
         //add initial professors
-        myDb.addProfessor("A", "Mr.");
-        myDb.addProfessor("B", "Mr.");
-        myDb.addProfessor("C", "Mr.");
-        myDb.addProfessor("D", "Mr.");
-        myDb.addProfessor("E", "Mr.");
+        myDb.addProfessor("Jaramillo", "Remi");
+        myDb.addProfessor("Valencia", "Faisal");
+        myDb.addProfessor("Senior", "Jon-Paul");
+        myDb.addProfessor("Mahoney", "Caprice");
+        myDb.addProfessor("Emery", "Tolga");
 
         //add initial reviews
-        myDb.addReview("A", "Mr.", "CSCI 120", "Test A", 5F, 5F);
-        myDb.addReview("A", "Mr.", "CSCI 120", "Test B", 3F, 2F);
-        myDb.addReview("A", "Mr.", "CSCI 130", "Test C", 5F, 5F);
-        myDb.addReview("B", "Mr.", "CSCI 120", "Test D", 5F, 5F);
-        myDb.addReview("C", "Mr.", "CSCI 260", "Test E", 5F, 5F);
+        myDb.addReview("Jaramillo", "Remi", "CSCI 120", "He is the best so far, highly recommend him.", 5F, 1F);
+        myDb.addReview("Jaramillo", "Remi", "CSCI 120", "Took his online class. Expect weekly assignment.", 3F, 4F);
+        myDb.addReview("Jaramillo", "Remi", "CSCI 130", "Great teacher, makes class fun.", 5F, 2F);
+        myDb.addReview("Valencia", "Faisal", "CSCI 120", "very easy to get an A...makes class fun...", 5F, 1F);
+        myDb.addReview("Senior", "Jon-Paul", "CSCI 120", "Honestly one of the best professors ever. She is super inspiring and I recommend everyone to take her class.", 5F, 2F);
 
     }
 

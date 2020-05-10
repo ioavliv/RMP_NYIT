@@ -347,8 +347,8 @@ fun makeReviewCard(cursor: Cursor, context: Context?, view : View, dataViewModel
     vertlayout.addView(ratingtext)
     vertlayout.addView(difftext)
     vertlayout.addView(commenttext)
-    vertlayout.addView(liketext)
-    vertlayout.addView(disliketext)
+//    vertlayout.addView(liketext)
+//    vertlayout.addView(disliketext)
 
     card?.addView(vertlayout)
 
