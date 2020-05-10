@@ -52,6 +52,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void destroy(){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.CourseTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.ProfessorTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.ReviewTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.ProfessorCourseTable.TABLE_NAME);
+        onCreate(db);
+    }
+
     ////////////////////////////////////////////////////////////////////
     // addCourse:   creates a row for the Courses table and adds to table
     //
@@ -294,7 +303,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllProfessorData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + DatabaseContract.ProfessorTable.TABLE_NAME, null);
+        Cursor res = db.rawQuery("select Last_Name, First_Name, round(Rating, 2), round(Level_of_Difficulty, 2) from " + DatabaseContract.ProfessorTable.TABLE_NAME, null);
         return res;
     }
 
@@ -387,7 +396,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getSingleProfessor(String LastName, String FirstName){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + DatabaseContract.ProfessorTable.TABLE_NAME + " where (Last_Name = " + LastName + ") and (First_Name = " + FirstName + ")", null);
+        Cursor res = db.rawQuery("select Last_Name, First_Name, round(Rating, 2), round(Level_of_Difficulty, 2) from " + DatabaseContract.ProfessorTable.TABLE_NAME + " where (Last_Name = '" + LastName + "') and (First_Name = '" + FirstName + "')", null);
         return res;
     }
 
@@ -412,13 +421,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getProfessorCourse(String CourseID){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + DatabaseContract.ProfessorCourseTable.TABLE_NAME + " where (CourseID = '" + CourseID + "') order by Rating desc", null);
+        Cursor res = db.rawQuery("select Last_Name, First_Name, CourseID, round(Rating, 2), round(Level_of_Difficulty, 2) from " + DatabaseContract.ProfessorCourseTable.TABLE_NAME + " where (CourseID = '" + CourseID + "') order by Rating desc", null);
         return res;
     }
 
     public Cursor getReviewData(String LastName, String FirstName) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + DatabaseContract.ReviewTable.TABLE_NAME + " where Professor_Last_Name = '" + LastName + "' and Professor_First_Name = '" + FirstName + "'", null);
+        return res;
+    }
+
+    public Cursor getCourseIDs(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select CourseID from " + DatabaseContract.CourseTable.TABLE_NAME, null);
         return res;
     }
 }

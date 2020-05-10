@@ -13,8 +13,10 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.professor_view.*
 
 class ProfessorView: Fragment() {
 
@@ -49,7 +51,24 @@ class ProfessorView: Fragment() {
         }
 
         text.text = FirstName + " " + LastName
+
+        cursor = mydb.getSingleProfessor(LastName, FirstName)
+        cursor.moveToNext()
+        view.findViewById<TextView>(R.id.textView2).text = "Overall Rating: " + cursor.getString(2) +
+                                                            " || Overall Difficulty: " + cursor.getString(3)
+
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val addreviewbutton : FloatingActionButton = view.findViewById(R.id.addReviewBtn)
+        addreviewbutton.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_ProfessorView_to_AddReview)
+        }
+
+
+
     }
 
 

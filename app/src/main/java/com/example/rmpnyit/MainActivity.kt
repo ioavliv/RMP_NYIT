@@ -23,6 +23,25 @@ class MainActivity : AppCompatActivity() {
         val myDb = DatabaseHelper (this);
 
         //add initial courses
+        myDb.destroy()
+        getInitialData(myDb)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val myDb = DatabaseHelper (this);
+        myDb.destroy()
+        getInitialData(myDb)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val myDb = DatabaseHelper (this);
+        myDb.destroy()
+        getInitialData(myDb)
+    }
+
+    private fun getInitialData(myDb : DatabaseHelper){
         myDb.addCourse("CSCI 120", "Programming I");
         myDb.addCourse("CSCI 130", "Computer Organization");
         myDb.addCourse("CSCI 260", "Data Structures");
@@ -43,10 +62,6 @@ class MainActivity : AppCompatActivity() {
         myDb.addReview("B", "Mr.", "CSCI 120", "Test D", 5F, 5F);
         myDb.addReview("C", "Mr.", "CSCI 260", "Test E", 5F, 5F);
 
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
 }
