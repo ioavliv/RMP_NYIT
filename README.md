@@ -33,4 +33,4 @@ professor.
 
 This google drive contains all project information including the final report, demo video, and presentation slides.
 
-[RateMyNYITProfessor Drive](https://drive.google.com/file/d/1WeZxASfLB1wpX1L3q8ae970bVkr-NIwx/view?usp=sharing)
+[RateMyNYITProfessor Drive](https://drive.google.com/drive/folders/17DMxqvJTabKvryedlxjYJDp5Wyre-NzO?usp=sharing)
